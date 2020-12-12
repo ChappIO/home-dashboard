@@ -2,13 +2,14 @@
     import ZolderFloor from "./components/ZolderFloor.svelte";
     import FirstFloor from "./components/FirstFloor.svelte";
     import BeganeGrond from "./components/BeganeGrond.svelte";
-    import './mqtt';
+    import DebugScreen from "./components/DebugScreen.svelte";
 </script>
 
 <main>
     <ZolderFloor/>
     <FirstFloor/>
     <BeganeGrond/>
+    <DebugScreen/>
 </main>
 
 <style lang="scss">
@@ -30,7 +31,7 @@
     }
   }
 
-  :global(h1,h2,h3,h4,h5,h6,p) {
+  :global(h1,h2,h3,h4,h5,h6,p,pre) {
     color: $foreground;
   }
 </style>
