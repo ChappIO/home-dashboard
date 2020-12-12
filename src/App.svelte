@@ -4,9 +4,9 @@
     import BeganeGrond from "./components/BeganeGrond.svelte";
 </script>
 
-    <ZolderFloor/>
-    <FirstFloor/>
-    <BeganeGrond/>
+<ZolderFloor/>
+<FirstFloor/>
+<BeganeGrond/>
 
 <style lang="scss">
   @import "variables";
