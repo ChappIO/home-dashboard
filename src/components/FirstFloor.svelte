@@ -41,32 +41,32 @@
   }
 
   .row {
-    width: 900px;
+    width: 1200px;
     display: flex;
     justify-content: space-between;
 
     &:first-child {
-      height: 228px;
+      height: 383px;
       margin-bottom: 19px;
 
       & > .bath.room {
-        width: 291px;
+        width: 387px;
       }
 
       & > .bed.room {
-        width: 351px;
+        width: 466px;
       }
     }
 
     &:nth-child(2) {
-      height: 246px;
+      height: 327px;
 
       & > .office.room {
-        width: 380px;
+        width: 505px;
       }
 
       & > .bed.room {
-        width: 500px;
+        width: 665px;
       }
     }
   }

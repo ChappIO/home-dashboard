@@ -43,13 +43,13 @@
   .column {
     display: flex;
     flex-direction: column;
-    height: 540px;
+    height: 718px;
 
     &:nth-child(1) {
-      width: 123px;
+      width: 164px;
 
       .bath.room {
-        height: 93px;
+        height: 124px;
         margin-bottom: 7px;
         margin-right: 7px;
         border-radius: 12px;
@@ -57,7 +57,7 @@
 
       .hall.room {
         margin-bottom: 7px;
-        height: 142px;
+        height: 189px;
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
       }
@@ -69,39 +69,39 @@
     }
 
     &:nth-child(2) {
-      width: 115px;
+      width: 153px;
 
       .hall.room {
         margin-bottom: 7px;
-        height: 242px;
+        height: 320px;
         border-top-left-radius: 12px;
         border-top-right-radius: 12px;
       }
     }
 
     &:nth-child(3) {
-      width: 180px;
+      width: 240px;
 
       .stairs {
-        height: 127px;
+        height: 169px;
       }
 
       .hall.room {
-        height: 115px;
+        height: 151px;
         margin-bottom: 7px;
       }
     }
 
     &:nth-child(4) {
-      width: 130px;
+      width: 173px;
 
       .stairs {
-        height: 127px;
+        height: 169px;
       }
     }
 
     &:nth-child(5) {
-      width: 351px;
+      width: 467px;
 
       .living.room {
         border-top-left-radius: 12px;

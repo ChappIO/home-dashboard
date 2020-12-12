@@ -31,15 +31,15 @@
   }
 
   .segment {
-    height: 150px;
-    width: 320px;
+    height: 200px;
+    width: 426px;
     border-top-right-radius: 12px;
     border-top-left-radius: 12px;
   }
 
   .room {
-    width: 900px;
-    height: 384px;
+    width: 1200px;
+    height: 511px;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
   }

@@ -2,14 +2,12 @@
     import ZolderFloor from "./components/ZolderFloor.svelte";
     import FirstFloor from "./components/FirstFloor.svelte";
     import BeganeGrond from "./components/BeganeGrond.svelte";
-    import DebugScreen from "./components/DebugScreen.svelte";
 </script>
 
 <main>
     <ZolderFloor/>
     <FirstFloor/>
     <BeganeGrond/>
-    <DebugScreen/>
 </main>
 
 <style lang="scss">
