@@ -1,5 +1,6 @@
 <script>
     import Screen from "./Screen.svelte";
+    import HueRoom from "./HueRoom.svelte";
 </script>
 
 <Screen title="Begane Grond">
@@ -11,7 +12,9 @@
         </div>
         <div class="column">
             <div class="hall room"></div>
-            <div class="living room"></div>
+            <div class="living room">
+                <HueRoom roomId={3}/>
+            </div>
         </div>
         <div class="column">
             <div class="stairs"></div>
@@ -23,7 +26,9 @@
             <div class="living room"></div>
         </div>
         <div class="column">
-            <div class="living room"></div>
+            <div class="living room">
+                <HueRoom roomId={2}/>
+            </div>
         </div>
     </div>
 </Screen>
@@ -38,6 +43,7 @@
 
   .room {
     background-color: $panel;
+    position: relative;
   }
 
   .column {

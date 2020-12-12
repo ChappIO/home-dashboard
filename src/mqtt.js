@@ -11,6 +11,7 @@ export const remoteState = readable({connection: 'pending', data: {}}, (set) => 
             state.connection = 'success';
             set(state);
             client.subscribe('miflora/#', {qos: 0});
+            client.subscribe('hue/#', {qos: 0});
         },
         onFailure: (e) => {
             state.connection = 'failed';
