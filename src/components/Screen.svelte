@@ -13,6 +13,8 @@
     .screen {
         width: 100vw;
         height: 100vh;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
         padding: 12px;
         display: flex;
         flex-direction: column;
