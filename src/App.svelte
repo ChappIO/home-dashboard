@@ -1,11 +1,11 @@
 <script>
-    import Screen from "./components/Screen.svelte";
+    import ZolderFloor from "./components/ZolderFloor.svelte";
+    import FirstFloor from "./components/FirstFloor.svelte";
 </script>
 
 <main>
-    <Screen title="Zolder"/>
-    <Screen title="Eerste Verdieping"/>
-    <Screen title="Begane Grond"/>
+    <ZolderFloor/>
+    <FirstFloor/>
 </main>
 
 <style lang="scss">

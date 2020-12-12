@@ -4,6 +4,9 @@
 
 <div class="screen" id={title}>
     <h1>{title}</h1>
+    <div class="content">
+        <slot/>
+    </div>
 </div>
 
 <style>
@@ -11,5 +14,15 @@
         width: 100vw;
         height: 100vh;
         padding: 12px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 </style>
