@@ -2,6 +2,7 @@
     import ZolderFloor from "./components/ZolderFloor.svelte";
     import FirstFloor from "./components/FirstFloor.svelte";
     import BeganeGrond from "./components/BeganeGrond.svelte";
+    import './mqtt';
 </script>
 
 <main>
