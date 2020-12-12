@@ -1,11 +1,13 @@
 <script>
     import ZolderFloor from "./components/ZolderFloor.svelte";
     import FirstFloor from "./components/FirstFloor.svelte";
+    import BeganeGrond from "./components/BeganeGrond.svelte";
 </script>
 
 <main>
     <ZolderFloor/>
     <FirstFloor/>
+    <BeganeGrond/>
 </main>
 
 <style lang="scss">
