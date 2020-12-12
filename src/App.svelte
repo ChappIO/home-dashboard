@@ -1,0 +1,33 @@
+<script>
+    import Screen from "./components/Screen.svelte";
+</script>
+
+<main>
+    <Screen title="Zolder"/>
+    <Screen title="Eerste Verdieping"/>
+    <Screen title="Begane Grond"/>
+</main>
+
+<style lang="scss">
+  @import "variables";
+
+  :global(body) {
+    background-color: $background;
+  }
+
+  main {
+    scroll-snap-type: Y mandatory;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+
+    & > :global(*) {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+  }
+
+  :global(h1,h2,h3,h4,h5,h6,p) {
+    color: $foreground;
+  }
+</style>
