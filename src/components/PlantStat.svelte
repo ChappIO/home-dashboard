@@ -1,17 +1,20 @@
 <script>
+    import Icon from 'svelte-awesome';
+
     export let value = -1;
     export let min = Number.MIN_VALUE;
     export let max = Number.MAX_VALUE;
     export let unit = '';
+    export let icon;
 </script>
 
 {#if value > max}
     <div class="high stat" data-tooltip="{value} > {max}">
-        {value} {unit}
+        <Icon data={icon} /> {value} {unit}
     </div>
 {:else if value < min}
     <div class="low stat" data-tooltip="{value} < {min}">
-        {value} {unit}
+        <Icon data={icon} /> {value} {unit}
     </div>
 {/if}
 
@@ -27,6 +30,13 @@
     white-space: nowrap;
     position: relative;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    & > :global(svg) {
+      margin-right: 6px;
+    }
 
     &:after {
       content: attr(data-tooltip);

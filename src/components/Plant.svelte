@@ -2,6 +2,7 @@
     import {remoteState} from "../mqtt";
     import {derived} from "svelte/store";
     import PlantStat from "./PlantStat.svelte";
+    import {battery, lightbulbO, tint} from 'svelte-awesome/icons';
 
     export let plantId;
     export let style = '';
@@ -12,9 +13,9 @@
 <div class="plant" style="{style}">
     <img src="{$plant?.image}" alt="{$plant?.name}"/>
     <div class="stats">
-        <PlantStat {...$plant?.battery}/>
-        <PlantStat {...$plant?.moisture}/>
-        <PlantStat {...$plant?.luminosity}/>
+        <PlantStat icon={battery} {...$plant?.battery}/>
+        <PlantStat icon={tint} {...$plant?.moisture}/>
+        <PlantStat icon={lightbulbO} {...$plant?.luminosity}/>
     </div>
 </div>
 
