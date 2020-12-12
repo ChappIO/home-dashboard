@@ -9,12 +9,12 @@
 </script>
 
 {#if value > max}
-    <div class="high stat" data-tooltip="{value} > {max}">
-        <Icon data={icon} /> {value} {unit}
+    <div class="high stat" data-tooltip="{value} > {max} {unit}">
+        <Icon data={icon} />
     </div>
 {:else if value < min}
-    <div class="low stat" data-tooltip="{value} < {min}">
-        <Icon data={icon} /> {value} {unit}
+    <div class="low stat" data-tooltip="{value} < {min} {unit}">
+        <Icon data={icon} />
     </div>
 {/if}
 
@@ -22,21 +22,19 @@
   @import "../variables";
 
   .stat {
-    background-color: $background;
     color: $foreground;
     padding: 3px 6px;
-    border-radius: 3px;
-    margin: 3px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: -15px 3px;
     white-space: nowrap;
     position: relative;
     cursor: pointer;
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    & > :global(svg) {
-      margin-right: 6px;
-    }
+    justify-content: center;
 
     &:after {
       content: attr(data-tooltip);
@@ -53,16 +51,14 @@
     }
 
     &.low {
-      box-shadow: 0 0 10px $primary;
-
+      background-color: $primary;
       &:after {
         background-color: $primary;
       }
     }
 
     &.high {
-      box-shadow: 0 0 10px $secondary;
-
+      background-color: $secondary;
       &:after {
         background-color: $secondary;
       }
