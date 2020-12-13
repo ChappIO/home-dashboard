@@ -46,8 +46,9 @@
         }
     }
 
-    function handleLongPress() {
-        showScenes = true;
+    function handleLongPress(e) {
+        e.preventDefault();
+        showScenes = !showScenes;
     }
 
     async function selectScene(scene) {
@@ -179,6 +180,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 
     .veerle {
       background-color: $secondary;

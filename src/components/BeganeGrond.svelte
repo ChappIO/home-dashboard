@@ -1,6 +1,7 @@
 <script>
     import Screen from "./Screen.svelte";
     import HueRoom from "./HueRoom.svelte";
+    import Plant from "./Plant.svelte";
 </script>
 
 <Screen title="Begane Grond" up="first">
@@ -27,6 +28,9 @@
         </div>
         <div class="column">
             <div class="living room">
+                <Plant plantId="c47c8d678a4c" style="top: 160px; right: 20px"/>
+                <Plant plantId="c47c8d678bbe" style="top: 80px; right: 20px"/>
+                <Plant plantId="c47c8d67a17e" style="right: 20px"/>
                 <HueRoom roomId={2}/>
             </div>
         </div>
