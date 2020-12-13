@@ -3,7 +3,7 @@
     import HueRoom from "./HueRoom.svelte";
 </script>
 
-<Screen title="Begane Grond">
+<Screen title="Begane Grond" up="first">
     <div class="floor">
         <div class="column">
             <div class="bath room"></div>

@@ -2,7 +2,7 @@
     import Screen from "./Screen.svelte";
 </script>
 
-<Screen title="Zolder">
+<Screen title="Zolder" down="first">
     <div class="floor">
         <div class="parts">
             <div class="segment">

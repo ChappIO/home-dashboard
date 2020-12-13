@@ -2,11 +2,26 @@
     import ZolderFloor from "./components/ZolderFloor.svelte";
     import FirstFloor from "./components/FirstFloor.svelte";
     import BeganeGrond from "./components/BeganeGrond.svelte";
+    import {onMount} from "svelte";
+
+    let page = window.location.hash.substring(1);
+
+    onMount(() => {
+        return window.addEventListener('hashchange', (e) => {
+            page = new URL(e.newURL).hash.substring(1);
+        })
+    })
+
+    $:console.log(page);
 </script>
 
-<ZolderFloor/>
-<FirstFloor/>
-<BeganeGrond/>
+{#if page === 'zolder'}
+    <ZolderFloor/>
+{:else if page === 'first'}
+    <FirstFloor/>
+{:else if page === 'ground'}
+    <BeganeGrond/>
+{/if}
 
 <style lang="scss">
   @import "variables";

@@ -4,7 +4,7 @@
     import HueRoom from "./HueRoom.svelte";
 </script>
 
-<Screen title="Eerste Verdieping">
+<Screen title="Eerste Verdieping" down="ground" up="zolder">
     <div class="floor">
         <div class="row">
             <div class="bath room">
