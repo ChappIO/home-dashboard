@@ -17,8 +17,8 @@
         <div class="row">
             <div class="office room">
                 <Plant plantId="c47c8d678248" style="top: 40px"/>
-                <Plant plantId="c47c8d677970" style="bottom: -40px; right: 30px"/>
-                <Plant plantId="c47c8d67ac50" style="bottom: 40px; right: 30px"/>
+                <Plant plantId="c47c8d677970" style="bottom: 0; right: 30px"/>
+                <Plant plantId="c47c8d67ac50" style="bottom: 80px; right: 30px"/>
                 <HueRoom roomId={1}/>
             </div>
             <div class="bed room">
