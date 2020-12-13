@@ -149,8 +149,7 @@
     </div>
     <div class="button"
          on:click={handleTap}
-         use:longpress
-         on:longpress={handleLongPress}>
+         on:contextmenu={handleLongPress}>
         <Icon data={lightbulbO} scale={2}/>
     </div>
     {#each scenes as scene, index}
