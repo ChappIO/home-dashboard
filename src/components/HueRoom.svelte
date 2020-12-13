@@ -12,6 +12,7 @@
     let room;
     let scenes = [];
     let showScenes = false;
+    let veerleModeActive = false;
     $: isOn = !!room?.state?.any_on;
 
     $: if ($baseUrl && !room) {
@@ -62,37 +63,79 @@
     }
 
     async function veerleMode() {
-        const lights = room.lights.map(light => `${$baseUrl}/lights/${light}/state`);
-        console.log(lights);
-        await Promise.all(lights.map((light) => fetch(
-            light,
-            {
-                method: 'PUT',
-                body: JSON.stringify({
-                    bri: 254,
-                    sat: 254,
-                    on: true
-                })
-            }
-        )));
-        for (let i = 0; i < 10; i++) {
+        if (veerleModeActive) {
+            return;
+        }
+        veerleModeActive = true;
+        try {
+            const lights = room.lights.map(light => `${$baseUrl}/lights/${light}/state`);
+            // save state for later
+            const lightsState = await Promise.all(lights.map(
+                light => fetch(light.substring(0, light.length - '/state'.length))
+                    .then(r => r.json())
+                    .then(state => ({url: light, ...state}))
+            ));
+
+            // full brightness!
             await Promise.all(lights.map((light) => fetch(
                 light,
                 {
                     method: 'PUT',
                     body: JSON.stringify({
-                        hue_inc: Math.floor(Math.random() * 30000 + 15000)
+                        bri: 254,
+                        sat: 254,
+                        on: true,
+                        transitiontime: 0,
                     })
                 }
             )));
-            await new Promise(resolve => {
-                setTimeout(resolve, 400);
-            })
+
+            for (let i = 0; i < 20; i++) {
+                await Promise.all(lights.map((light) => fetch(
+                    light,
+                    {
+                        method: 'PUT',
+                        body: JSON.stringify({
+                            hue_inc: Math.floor(Math.random() * 30000 + 15000),
+                            transitiontime: 0,
+                        })
+                    }
+                )));
+            }
+            // restore state
+            await Promise.all(lightsState.map(light => {
+                let settings = {};
+
+                switch (light.state.colormode) {
+                    case 'ct':
+                        settings = {
+                            ct: light.state.ct
+                        }
+                        break;
+                    case 'hs':
+                        settings = {
+                            hue: light.state.hue,
+                            sat: light.state.sat,
+                        }
+                        break;
+                    case 'xy':
+                        settings = {
+                            xy: light.state.xy
+                        }
+                        break;
+                }
+                return fetch(light.url, {
+                    method: 'PUT',
+                    body: JSON.stringify({
+                        on: light.state.on,
+                        bri: light.state.bri,
+                        ...settings
+                    })
+                });
+            }));
+        } finally {
+            veerleModeActive = false;
         }
-        await new Promise(resolve => {
-            setTimeout(resolve, 3000);
-        })
-        await selectScene(scenes.find(scene => scene.name === 'Helder'));
     }
 </script>
 
