@@ -11,7 +11,6 @@
 
             </div>
             <div class="bed room">
-
             </div>
         </div>
         <div class="row">
@@ -22,7 +21,7 @@
                 <HueRoom roomId={1}/>
             </div>
             <div class="bed room">
-
+                <HueRoom roomId={4}/>
             </div>
         </div>
     </div>
