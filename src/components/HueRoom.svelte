@@ -137,6 +137,9 @@
             veerleModeActive = false;
         }
     }
+
+    $:scenePol = Math.PI * 2 / scenes.length;
+    const sceneRad = 140;
 </script>
 
 <div class="room light {isOn ? 'on' : 'off'} {showScenes ? 'show-scenes' : ''}"
@@ -150,16 +153,16 @@
          on:longpress={handleLongPress}>
         <Icon data={lightbulbO} scale={2}/>
     </div>
-    <div class="scenes">
-        {#each scenes as scene}
-            <div class="scene" on:click={() => selectScene(scene)}>
-                <div class="enable">
-                    <Icon data={lightbulbO}/>
-                </div>
-                <span>{scene.name}</span>
-            </div>
-        {/each}
-    </div>
+    {#each scenes as scene, index}
+        <div class="scene"
+             on:click={() => selectScene(scene)} data-name={scene.name}
+             style={
+             `transform: ${showScenes ? `translate(${Math.sin(scenePol * index) * sceneRad}px, ${Math.cos(scenePol * index) * sceneRad}px)` : 'none'};` +
+             `transition-delay: ${index * 0.03}s`
+        }>
+            <Icon data={lightbulbO}/>
+        </div>
+    {/each}
 </div>
 
 <style lang="scss">
@@ -174,6 +177,9 @@
     bottom: 0;
     left: 0;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .veerle {
       background-color: $secondary;
@@ -213,47 +219,45 @@
       background-color: $background;
     }
 
-    &:not(.show-scenes) .scenes {
-      display: none;
+    &:not(.show-scenes) {
+      .scene {
+        opacity: 0;
+        pointer-events: none;
+        touch-action: none;
+      }
     }
 
-    .scenes {
-      position: absolute;
+    .scene {
+      color: $foreground;
+      cursor: pointer;
+      opacity: 1;
+
       margin: auto;
-      top: 0;
+      position: absolute;
+      left: 0;
       right: 0;
-      transform: translateY(-50%);
 
-      .scene {
-        color: $foreground;
-        cursor: pointer;
-        padding: 3px 6px;
-        margin: 3px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+      width: 30px;
+      height: 30px;
+      background-color: $primary;
+      border-radius: 50%;
+      padding: 3px 6px;
 
-        .enable {
-          background-color: $primary;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin-bottom: 3px;
-        }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
 
-        span {
-          text-align: center;
-        }
+      transition-property: transform, opacity;
+      transition-duration: 0.3s;
+
+      &:after {
+        position: absolute;
+        top: 36px;
+        content: attr(data-name);
+        text-align: center;
       }
-
-      .scene {
-        right: -12px;
-        transform: translateX(100%);
-      }
-
     }
+
   }
 </style>

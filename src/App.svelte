@@ -10,9 +10,7 @@
         return window.addEventListener('hashchange', (e) => {
             page = new URL(e.newURL).hash.substring(1);
         })
-    })
-
-    $:console.log(page);
+    });
 </script>
 
 {#if page === 'zolder'}
